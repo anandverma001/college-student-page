@@ -1,0 +1,32 @@
+*{
+    margin: 0%;
+    box-sizing: border-box;
+}
+.conatiner{
+    background-color: rgb(180, 180, 231);
+    width: 100vw;
+    height: 100vh;
+}
+.card{
+    position: fixed;
+    margin: auto;
+    inset: 0;
+    height: 470px;
+    width: 100%;
+    max-width: 300px;
+    background-color: aliceblue;
+    border-radius: 1em;
+    padding: 1em;
+}
+img{
+  
+    width: 100%;
+    border-radius: 1em;
+}
+h2{
+    color: #1f3251; ;
+    margin-top: 10px;
+}
+p{
+
+}

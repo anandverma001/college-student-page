@@ -1,0 +1,365 @@
+*{
+    margin: 0;
+}
+.hero{
+    min-height: 100vh;
+    background-image: url(orange-backdrop.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.hero img{
+    max-width: 220px;
+}
+.hero p{
+    font-size: 35px;
+    font-family: 'salsa',cursive;
+    margin-left: 150px;
+    max-width: 600px;
+
+}
+.audio{
+    display: flex;
+    justify-content: center;
+    background-color:  #fbd8a4;;
+    border-radius: 30px;
+    max-width: max-content;
+    height:auto;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 160px;
+    padding: 10px;
+}
+
+  audio::-webkit-media-controls-play-button, 
+      audio::-webkit-media-controls-panel {   
+          background-color:#fbd8a4;
+       }
+
+.img-container img {
+    max-width: 300px;
+    height:300px;
+    gap: 5px;
+}       
+/* 
+@media (max-width: 850px){
+    .first-diya{
+        display: block;
+        margin-left: 250px;
+    }
+    .second-diya, .soul,.music-icon,playing-music{
+        display: none;
+    
+    }
+    .para-and-audio{
+        margin-left: 1rem;
+    }
+}   
+@media(max-width :450px ){
+    .para{
+        font-weight: 300;
+        margin-right: 100px;
+        padding-right: 100px;
+    }
+    .hero p{
+        font-size: 25px;
+        margin-right: 100px;
+        max-width: 300px;
+
+    }
+    .jhalar{
+        width: 150px;
+    }
+    .para-and-audio{
+        margin: 1.5rem;
+    }
+    .audio{
+        margin-right: 10px;
+        width: 200px;
+    }
+    .first-diya{
+        display: block;
+        margin-right:auto;
+    }
+} */
+
+
+@media (max-width: 1024px) {
+    .hero p.para {
+        font-size: 35px;
+        margin-left: 150px;
+    }
+
+    .audio {
+        margin-top: 50px;
+        margin-left: 150px;
+        /* padding: 8px; */
+    }
+
+    .img-container img {
+        width: 300px;
+        height: 300px;
+    }
+    .img-container{
+        margin-top: 100px;
+    }
+}
+
+/* Media Query for Tablets (max-width: 768px) */
+@media (max-width: 800px) {
+    .hero {
+        align-items: center;
+        text-align: center;
+    }
+    .jhalar{
+        margin-right: 450px;
+    }
+
+    .hero p.para {
+        font-size: 28px;
+        margin-left: 0;
+        max-width: 80%;
+    }
+
+    .audio {
+        margin-left: 150px;
+        margin-top: 50px;
+    }
+    .second-diya, .soul, .playing,.music-icon{
+        display: none;
+    }
+
+
+    .img-container img {
+        width: 180px;
+        height: 180px;
+        margin-right: 150px;
+    }
+}
+
+/* Media Query for Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero p.para {
+        font-size: 20px;
+        margin-left: 0;
+        max-width: 90%;
+    }
+    .jhalar{
+        width: 150px;
+    }
+    .audio {
+        /* flex-direction: column; */
+        padding: 5px;
+        margin: 20px auto;
+        /* width: auto; */
+    }
+    .second-diya, .soul, .playing,.music-icon{
+        display: none;
+    }
+   
+
+    .img-container {
+        display: flex;
+        justify-content: center;
+        margin-left: 100px;
+    }
+    .hero{
+        background-color: #d68100;
+    }
+
+    .img-container img {
+        width: 150px;
+        height: 150px;
+    }
+}
+.lakshmi-ganesh{
+    background-color: #d68100;
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Style Script',cursive;
+    font-size: 2.5rem;
+    
+    padding: 20px;
+
+}
+.horizontal-bar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    max-width: 800px;
+    margin-top: 10px;
+
+}
+.horizontal-line{
+    height: 3px;
+    background-color: #fbd8a4;
+    width: 468px;
+}
+.circle{
+    width: 10px;
+    height: 10px;
+    background-color: #fbd8a4;
+    border-radius: 100%;
+}
+.lakshmi-ganesh img{
+    width: 80%;
+}
+ .card{
+    background-color: #d68100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+}
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .horizontal-bar {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    max-width: 800px; 
+    gap: 10px;
+    margin: 50px 0; 
+} 
+
+
+.white-card{
+    background-color: #ffff;
+    max-width: 750px;
+    width: 100%;
+    padding: 4rem;
+    border-radius: 20px;
+    /* margin-top: 100px; */
+}
+.white-card p{
+    font-size: 2rem;
+    align-items: center;
+    font-family: 'salsa',cursive;
+}
+.card-image img{
+    width: 300px;
+    height: 550px;
+    margin-left:-80px;
+    /* margin-top: 100px; */
+} 
+.last-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d68100;
+    height: 100vh;
+    gap: 30px;
+}
+.last-card-img{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffff;
+    border-radius: 20px;
+    max-width: 1200px;
+}
+.last-card-img img{
+    max-width: 400px;
+    /* width: 100%; */
+}
+.last-text {
+    display: flex;
+    justify-content: space-between;
+    background-color: #d68100;
+    margin-top: -50px;
+    padding-left: 30px;
+    padding-right: 20px;
+  
+}
+
+.last-text p{
+    font-family: 'salsa',cursive;
+    font-size: 1.5rem;
+
+}
+#made{
+    font-size: 1rem;
+    text-align: end;
+    padding-top: 60px;
+}
+.last-text h2{
+    font-family: 'Style Script',cursive;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+/* Base styles (for desktop and large screens) */
+
+/* Media query for tablets (768px and below) */
+@media (max-width: 768px) {
+    .hero p.para {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .img-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .img-container img {
+        width: 60px;
+    }
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .white-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    .card-image img {
+        width: 50%;
+    }
+    .ganesha{
+        display: none;
+    }
+}
+
+/* Media query for mobile phones (480px and below) */
+@media (max-width: 480px) {
+    .hero p.para {
+        font-size: 1rem;
+    }
+    .img-container img {
+        width: 40px;
+    }
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .white-card {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .card-image img {
+        width: 70%;
+    }
+    .last-card-img img {
+        width: 40%;
+    }
+    .thankyu h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    #made {
+        font-size: 0.9rem;
+    }
+   
+}

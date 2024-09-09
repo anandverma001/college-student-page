@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+.header{
+    height: 150px;
+    background-color: #065fd4;
+    color: aliceblue;
+    padding: 2em;
+    background-image: url(https://github.com/procodrr/css-projects/blob/main/01_youtube-hashtag-header/starter-code/images/background.png?raw=true);
+    background-position-x: 100%;
+    background-position-y: -160px;
+    background-size: 260px;
+    background-repeat: no-repeat;
+  
+    /* text-align: center; */
+
+}
+.header h1{
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+.header span{
+    font-size: 1.5em;
+}
+
+.header img{
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    margin-left:13px ;
+    border: 3px solid white;
+    vertical-align: middle;
+    
+}
+.header img + img {
+    margin-left: -1rem;
+    /* display: flex;
+    flex-direction: row-reverse; */
+}

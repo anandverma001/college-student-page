@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: -100px;
+}
+.red-box{
+    background-color: red;
+}
+.green-box{
+    background-color: green;
+    margin-left: 2rem;
+}
+.blue-box{
+    background-color: blue;
+    margin-left: 3rem;
+}
