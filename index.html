@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Days Countdown</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    p {
+      font-size: 24px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="countdown"></h1>
+    <p>Days Left</p>
+  </div>
+
+  <script>
+    let totalDays = 250;
+
+    function updateCountdown() {
+      const currentDate = new Date();
+      const startDate = new Date(2025, 1, 20); // Starting date (Feb 20, 2025)
+      const diffTime = currentDate - startDate;
+      const passedDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      const remainingDays = totalDays - passedDays;
+      if (remainingDays >= 0) {
+        document.getElementById('countdown').textContent = remainingDays + " Days";
+      } else {
+        document.getElementById('countdown').textContent = "Time's Up!";
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 86400000); // Updates every 24 hours
+  </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Days Countdown with Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      text-align: center;
+      width: 400px;
+      height: 400px;
+      padding: 20px;
+      background-color: #ffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    p {
+      font-size: 24px;
+      color: #555;
+    }
+    #timer {
+      font-size: 30px;
+      color: #333;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="countdown"></h1>
+    <p>Days Left</p>
+    <div id="timer"></div>
+    <p>Time Left Today</p>
+  </div>
+
+  <script>
+    let totalDays = 100;
+
+    // Function to update the countdown of days
+    function updateCountdown() {
+      const currentDate = new Date();
+      const startDate = new Date(2025, 1, 20); // Starting date (Feb 20, 2025)
+      const diffTime = currentDate - startDate;
+      const passedDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const remainingDays = totalDays - passedDays;
+
+      if (remainingDays >= 0) {
+        document.getElementById('countdown').textContent = remainingDays + " Days";
+      } else {
+        document.getElementById('countdown').textContent = "Time's Up!";
+      }
+    }
+
+    // Function to update the timer for the current day
+    function updateTimer() {
+      const currentDate = new Date();
+      const endOfDay = new Date(currentDate.setHours(23, 59, 59, 999)); // Set to 11:59:59 PM
+      const diffTime = endOfDay - new Date();
+      
+      const hours = Math.floor(diffTime / (1000 * 60 * 60));
+      const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+
+      document.getElementById('timer').textContent = `${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update both countdown and timer every second
+    setInterval(function() {
+      updateCountdown();
+      updateTimer();
+    }, 1000);
+
+    // Initial call to set the values when the page loads
+    updateCountdown();
+    updateTimer();
+  </script>
+</body>
+</html>

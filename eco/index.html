@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eco Tourism Initiative</title>
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdfcf8;
+      color: #2c3e50;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: #27ae60;
+    }
+    a:hover, a:focus {
+      color: #196d3a;
+      outline: none;
+    }
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 0 3rem;
+    }
+    /* Header & Nav */
+    header {
+      background-color: #27ae60;
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+    .tagline {
+      font-style: italic;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.3rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+      color: white;
+    }
+    nav a:hover, nav a:focus {
+      background-color: #196d3a;
+      color: white;
+      outline: none;
+    }
+
+    /* Button styles */
+    .btn {
+      display: inline-block;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.3rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      text-align: center;
+    }
+    .btn:hover, .btn:focus {
+      background-color: #196d3a;
+      outline: none;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 0 5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Home page */
+    #home {
+      background: linear-gradient(135deg, #d9f4dd 30%, #a4d799 90%);
+      color: #194d33;
+      text-align: center;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    #home .logo-big {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      user-select: none;
+    }
+    #home .tagline-big {
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    #home p.intro-text {
+      margin: 1.5rem auto 3rem;
+      max-width: 600px;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+    #home .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Explore Destinations */
+    #destinations {
+      background: #f9f9f9;
+    }
+    #destinations h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #27ae60;
+      user-select: none;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+      padding: 1.7rem 1.7rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease;
+      cursor: default;
+    }
+    .card:hover, .card:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgb(0 0 0 / 0.15);
+      outline: none;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #196d3a;
+      user-select: none;
+    }
+    .card .attractions, .card .activities {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0.5rem 0 1rem 0;
+      line-height: 1.4;
+      user-select: none;
+    }
+    .card .btn {
+      align-self: flex-start;
+      font-size: 0.95rem;
+      padding: 0.55rem 1.1rem;
+    }
+
+    /* Guides Section */
+    #guides {
+      background: linear-gradient(120deg, #e8faf0, #b1ddb6);
+      padding-bottom: 6rem;
+    }
+    #guides h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #196d3a;
+      user-select: none;
+    }
+    .guide-profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 2.2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .profile-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+      padding: 1.8rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      object-fit: cover;
+      border: 3px solid #27ae60;
+    }
+    .profile-card h4 {
+      margin: 0.2rem 0 0.6rem;
+      color: #196d3a;
+    }
+    .profile-card p.skills {
+      font-style: italic;
+      color: #4a4a4a;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+    }
+    .profile-card .testimonial {
+      font-size: 0.85rem;
+      color: #2f2f2f;
+      background: #d7efd9;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-style: normal;
+      line-height: 1.3;
+      box-shadow: inset 1px 1px 5px rgba(0,0,0,0.12);
+    }
+
+    /* Training Section */
+    #training {
+      background: #f7f9f6;
+    }
+    #training h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.8rem;
+      color: #27ae60;
+      user-select: none;
+    }
+    .training-topics {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      padding: 1rem 1.3rem;
+    }
+    .training-topics ul {
+      list-style-type: disc;
+      padding-left: 1.3rem;
+      color: #396d33;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+    .partners {
+      max-width: 700px;
+      margin: 1rem auto;
+      font-size: 1rem;
+      text-align: center;
+      color: #2b5729;
+      user-select: none;
+    }
+    .partners strong {
+      color: #1a3e1b;
+    }
+    #training .btn-join {
+      display: block;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.7rem 1.8rem;
+      background-color: #196d3a;
+    }
+    #training .btn-join:hover, #training .btn-join:focus {
+      background-color: #0f2a19;
+      outline: none;
+    }
+
+    /* About Us / Contact */
+    #about {
+      background: #e3f0de;
+      color: #1e3620;
+    }
+    #about h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      user-select: none;
+    }
+    #about .project-story {
+      max-width: 850px;
+      margin: 0 auto 2.8rem;
+      padding: 0 1rem;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 7px 15px rgb(0 0 0 / .06);
+    }
+    #team {
+      max-width: 1000px;
+      margin: 0 auto 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+      gap: 1.6rem;
+      justify-items: center;
+    }
+    .team-member {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem 1rem 1.4rem;
+      text-align: center;
+      box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+      user-select: none;
+    }
+    .team-member img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.6rem;
+      border: 3px solid #51975b;
+    }
+    .team-member p {
+      margin: 0;
+      font-weight: 600;
+      color: #39702a;
+    }
+
+    /* Contact Form */
+    #contact-form {
+      max-width: 450px;
+      margin: 0 auto;
+      background: white;
+      padding: 1.8rem 2rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 0.07);
+      user-select: none;
+    }
+    #contact-form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: #13581d;
+    }
+    #contact-form input, #contact-form textarea {
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      margin-bottom: 1rem;
+      border: 1.8px solid #9bcc9c;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    #contact-form input:focus, #contact-form textarea:focus {
+      border-color: #27ae60;
+      outline: none;
+      box-shadow: 0 0 8px #a9d9a7;
+    }
+    #contact-form button {
+      display: block;
+      width: 100%;
+      background-color: #27ae60;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    #contact-form button:hover, #contact-form button:focus {
+      background-color: #196d3a;
+      outline: none;
+    }
+
+    /* Social media icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: #27ae60;
+      color: white;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+    .social-icons a:hover, .social-icons a:focus {
+      background-color: #196d3a;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 400px) {
+      nav {
+        justify-content: center;
+      }
+      header .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      section {
+        padding: 3rem 1rem 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo" aria-label="Preserve Nature Empower People Logo">EcoNature</div>
+      <div class="tagline">Preserve Nature. Empower People.</div>
+      <nav aria-label="Primary Navigation">
+        <a href="#home" tabindex="0">Home</a>
+        <a href="#destinations" tabindex="0">Explore Destinations</a>
+        <a href="#guides" tabindex="0">Meet Our Guides</a>
+        <a href="#training" tabindex="0">Training &amp; Skills</a>
+        <a href="#about" tabindex="0">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" aria-labelledby="home-title">
+      <div class="container">
+        <h1 id="home-title" class="logo-big" aria-label="Logo EcoNature">EcoNature</h1>
+        <div class="tagline-big">Preserve Nature. Empower People.</div>
+        <p class="intro-text">Empowering rural communities through eco-tourism and skill training.</p>
+        <div class="btn-group" role="group" aria-label="Call to action buttons">
+          <button class="btn" id="exploreBtn">Explore Villages</button>
+          <button class="btn" id="volunteerBtn">Become a Volunteer</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinations" aria-labelledby="destinations-title">
+      <h2 id="destinations-title">Explore Destinations</h2>
+      <div class="cards" role="list">
+        <article class="card" tabindex="0" role="listitem" aria-label="Coorg village eco-tourism destination">
+          <h3>Coorg</h3>
+          <p class="attractions"><strong>Natural attractions:</strong> Coffee plantations, Abbey Falls, lush forests</p>
+          <p class="activities"><strong>Activities:</strong> Trekking, coffee farm visits, local crafts</p>
+          <button class="btn book-btn" aria-label="Book experience in Coorg">Book Experience</button>
+        </article>
+        <article class="card" tabindex="0" role="listitem" aria-label="Mawlynnong village eco-tourism destination">
+          <h3>Mawlynnong</h3>
+          <p class="attractions"><strong>Natural attractions:</strong> Clean village, living root bridges, waterfalls</p>
+          <p class="activities"><strong>Activities:</strong> Village walks, folk arts, nature photography</p>
+          <button class="btn book-btn" aria-label="Book experience in Mawlynnong">Book Experience</button>
+        </article>
+        <article class="card" tabindex="0" role="listitem" aria-label="Ziro village eco-tourism destination">
+          <h3>Ziro</h3>
+          <p class="attractions"><strong>Natural attractions:</strong> Pine forests, rice fields, serene valley</p>
+          <p class="activities"><strong>Activities:</strong> Trekking, festivals, cultural tours</p>
+          <button class="btn book-btn" aria-label="Book experience in Ziro">Book Experience</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="guides" aria-labelledby="guides-title">
+      <h2 id="guides-title">Meet Our Guides</h2>
+      <div class="guide-profiles">
+        <article class="profile-card" tabindex="0" aria-label="Profile of Ram, skilled in folk dance">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Photo of Ram"/>
+          <h4>Ram</h4>
+          <p class="skills">Skills: Folk dance, storytelling, guiding</p>
+          <p class="testimonial">“Ram’s energy made our trek unforgettable!” – Visitor</p>
+        </article>
+        <article class="profile-card" tabindex="0" aria-label="Profile of Anika, skilled in local cooking">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo of Anika"/>
+          <h4>Anika</h4>
+          <p class="skills">Skills: Local cooking, hospitality, crafts</p>
+          <p class="testimonial">“Anika’s cooking workshop was delightful.” – Participant</p>
+        </article>
+        <article class="profile-card" tabindex="0" aria-label="Profile of Tashi, skilled in guiding and eco-awareness">
+          <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="Photo of Tashi"/>
+          <h4>Tashi</h4>
+          <p class="skills">Skills: Eco-awareness, guiding, language skills</p>
+          <p class="testimonial">“Tashi’s guiding was knowledgeable and fun.” – Guest</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="training" aria-labelledby="training-title">
+      <h2 id="training-title">Training &amp; Skill Development</h2>
+      <div class="training-topics">
+        <ul>
+          <li>Hospitality &amp; Hygiene</li>
+          <li>Eco-awareness</li>
+          <li>Tour Guiding</li>
+        </ul>
+      </div>
+      <div class="partners" aria-label="Partners for the training program">
+        Partners: <strong>NSDC</strong>, <strong>Various local NGOs</strong>
+      </div>
+      <button class="btn btn-join" id="joinTrainingBtn">Join Training</button>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About Us / Contact</h2>
+      <article class="project-story">
+        <p>
+          Our initiative is dedicated to empowering rural communities by connecting eco-conscious travelers with experiential tourism and skill development opportunities. We believe in preserving nature while uplifting local people.
+        </p>
+      </article>
+
+      <div id="team" aria-label="Team members">
+        <article class="team-member" tabindex="0" aria-label="Team member Meera">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Photo of Meera"/>
+          <p>Meera</p>
+        </article>
+        <article class="team-member" tabindex="0" aria-label="Team member Arjun">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Photo of Arjun"/>
+          <p>Arjun</p>
+        </article>
+        <article class="team-member" tabindex="0" aria-label="Team member Priya">
+          <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Photo of Priya"/>
+          <p>Priya</p>
+        </article>
+      </div>
+
+      <form id="contact-form" aria-label="Contact Us Form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="social-icons" aria-label="Social Media Links">
+        <a href="#" aria-label="Facebook" tabindex="0" title="Facebook" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.8v-6.9h-2.3v-2.9h2.3v-2.2c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .08 2 .08v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7h2.4l-.4 2.9h-2v6.9A10.01 10.01 0 0022 12z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" tabindex="0" title="Twitter" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.1.9 5.4 5.4 0 002.4-3 11 11 0 01-3.5 1.3A5.5 5.5 0 0016.6.5c-3 0-5.3 2.6-5.3 5.8a6.3 6.3 0 00.15 1.3C7.7 6.9 4.1 5 1.7 2.1a6.1 6.1 0 00-.7 2.9c0 2 1 3.7 2.5 4.6a5.1 5.1 0 01-2.4-.7v.1c0 2.8 2 5.1 4.5 5.7a5.1 5.1 0 01-1.4.2c-.3 0-.6 0-.9-.1a5.6 5.6 0 005.3 4 11.3 11.3 0 01-7 2c-.4 0-.8 0-1.2-.1A15.9 15.9 0 008 20c10 0 15.4-8.5 15.4-15.9 0-.2 0-.4 0-.6a11.3 11.3 0 002.8-3z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" tabindex="0" title="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.65-1.3 3-3 3H7a3 3 0 01-3-3V7c0-1.7 1.35-3 3-3zm8 2a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Smooth scroll handled by CSS via scroll-behavior, this is for demo actions:
+    document.getElementById('exploreBtn').addEventListener('click', function() {
+      document.getElementById('destinations').scrollIntoView({behavior: 'smooth'});
+    });
+    document.getElementById('volunteerBtn').addEventListener('click', function() {
+      alert('Thank you for your interest in volunteering! Please contact us through the form below.');
+      document.getElementById('about').scrollIntoView({behavior: 'smooth'});
+    });
+    document.querySelectorAll('.book-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('Booking demo: This is a demo button and does not process real bookings.');
+      });
+    });
+    document.getElementById('joinTrainingBtn').addEventListener('click', function() {
+      alert('Join Training demo: Please contact us via the form below for training info.');
+      document.getElementById('about').scrollIntoView({behavior: 'smooth'});
+    });
+    // Contact form mock submission
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Thank you for reaching out! We will get back to you soon.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
+
